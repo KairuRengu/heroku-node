@@ -1,7 +1,19 @@
 var express = require('express');
 var mysql = require('mysql');
 var app = express();
-
+var connection = mysql.createConnection({
+	host	: 'hopper.wlu.ca',
+	user	: 'cram7290',
+	password : 'bigtop6',
+	database : 'cram7290'
+});
+connection.connect();
+connection.query('SELECT * from Customers', function(err, rows, field){
+	if(!err)
+		console.log('The solution is : ', rows);
+	else
+		console.log('Error while performing Query. ');
+});
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
