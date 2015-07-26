@@ -30,7 +30,7 @@ app.get('/popular-stocks', function(req, res) {
 app.get('/stock-information', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-	res.render('stock-information');
+	res.render('stock_information');
 });
 
 
