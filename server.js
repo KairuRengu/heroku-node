@@ -34,7 +34,9 @@ app.get('/stock-information', function(req, res) {
 	// ejs render automatically looks in the views folder
 	res.render('stock_information');
 });
-
+app.get('/navigation', function(req, res){
+	res.render('navigation');
+});
 
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
