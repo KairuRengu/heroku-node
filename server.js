@@ -17,6 +17,9 @@ app.get('/', function(req, res) {
 	// ejs render automatically looks in the views folder
 	res.render('index');
 });
+
+// make express look in the public directory for assets (css/js/img)
+app.use(express.static(__dirname + '/public'));
 app.get('/profile', function(req, res) {
 
 	// ejs render automatically looks in the views folder
@@ -27,6 +30,8 @@ app.get('/popular-stocks', function(req, res) {
 	// ejs render automatically looks in the views folder
 	res.render('popular-stocks');
 });
+// make express look in the public directory for assets (css/js/img)
+app.use(express.static(__dirname + '/public'));
 app.get('/stock-information', function(req, res) {
 
 	// ejs render automatically looks in the views folder
