@@ -3,10 +3,10 @@ var mysql = require('mysql');
 var http = require('http');
 var app = express();
 var connection = mysql.createConnection({
-	host	: 'hopper.wlu.ca',
-	user	: 'cram7290',
-	password : 'bigtop6',
-	database : 'cram7290'
+	host	: '',
+	user	: '',
+	password : '',
+	database : ''
 });
 connection.connect();
 connection.query('SELECT * from Customers', post, function(err, rows, field){
