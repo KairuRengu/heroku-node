@@ -20,17 +20,17 @@ app.get('/', function(req, res) {
 app.get('/profile', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-	res.render('index');
+	res.render('profile');
 });
 app.get('/popular-stocks', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-	res.render('index');
+	res.render('popular-stocks');
 });
 app.get('/stock-information', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-	res.render('index');
+	res.render('stock-information');
 });
 
 
