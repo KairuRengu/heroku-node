@@ -3,13 +3,13 @@ var mysql = require('mysql');
 var http = require('http');
 var app = express();
 var connection = mysql.createConnection({
-	host	: '',
-	user	: '',
-	password : '',
-	database : ''
+	host	: 'hopper.wlu.ca',
+	user	: 'cram7290',
+	password : 'bigtop6',
+	database : 'cram7290'
 });
 connection.connect();
-connection.query('SELECT * from Customers', get, function(err, rows, field){
+connection.query('SELECT * from Customers', function(err, rows, field){
 	if(!err)
 		console.log('The solution is : ', rows);
 	else
