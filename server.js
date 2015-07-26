@@ -1,5 +1,6 @@
 var express = require('express');
 var mysql = require('mysql');
+var http = require('http');
 var app = express();
 var connection = mysql.createConnection({
 	host	: 'hopper.wlu.ca',
@@ -8,7 +9,7 @@ var connection = mysql.createConnection({
 	database : 'cram7290'
 });
 connection.connect();
-connection.query('SELECT * from Customers', function(err, rows, field){
+connection.query('SELECT * from Customers', post, function(err, rows, field){
 	if(!err)
 		console.log('The solution is : ', rows);
 	else
