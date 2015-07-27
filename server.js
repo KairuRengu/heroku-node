@@ -3,7 +3,6 @@ var mysql = require('mysql');
 var passport = require('passport-http');
 var bodyParser = require('body-parser');
 var app = express();
-app.register('.html', require('jade'));
 var connection = mysql.createConnection({
 	host	: 'hopper.wlu.ca',
 	user	: 'cram7290',
@@ -19,7 +18,7 @@ connection.query('Select * from UserAuthentication', function(err, rows,fields){
 var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
@@ -28,7 +27,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-	res.render('index.html');
+	res.render('index');
 
 });
 
