@@ -29,13 +29,15 @@ app.get('/', function(req, res) {
 	// ejs render automatically looks in the views folder
 	res.render('index');
 });
-app.post('/navigation', function(req, res){
-	var userEmail = req.body.UserName;
+
+app.post('/', function(req, res){
+	res.render(res);
+/* 	var userEmail = req.body.UserName;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
 	res.render('index');
-	res.write(html);
-	res.end();
+	res.write(html); */
+	/* res.end(); */
 });
 app.get('/profile', function(req, res) {
 
