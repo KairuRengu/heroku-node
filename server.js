@@ -65,7 +65,7 @@ app.get('/myaction',function(req,res){
 	res.send(html);
 });
 app.post('/myaction',function(req,res){
-	var userName = req.body.userName;
+	var userName = req.body.UserName;
 	var html = 'Hello: ' + userName + '.<br>';
 	res.send(html);
 });
