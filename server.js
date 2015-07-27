@@ -66,6 +66,7 @@ app.get('/my_secret_page', checkAuth, function (req, res){
 
 app.get('/login', function (req, res){
 	var post = req.body;
+	res.send('login');
 	if( post.user == 'john' && post.password == 'johnspassword'){
 		req.session.user_id = johns_usre_id_here;
 		res.redirect('/my_secret_page');
