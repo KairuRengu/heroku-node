@@ -1,11 +1,16 @@
 var express = require('express');
 var mysql = require('mysql');
+var passport = require('passport');
 var app = express();
 var connection = mysql.createConnection({
 	host	: 'hopper.wlu.ca',
 	user	: 'cram7290',
 	password : 'bigtop6',
 	database : 'cram7290'
+});
+connection.connect();
+connection.query('Select * from userAuthentication', function(err, rows,fields){
+	console.log(rows);
 });
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
