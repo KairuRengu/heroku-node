@@ -1,20 +1,26 @@
 var express = require('express');
 var mysql = require('mysql');
-var passport = require('passport-http');
+var passport = require('passport');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+
+var configDB = require('./config/database.js');
+
+mysql.connect(configDB.url);
+
+
 var app = express();
+
 var server = app.listen(port);
 var server = http.createServer(app);
-var connection = mysql.createConnection({
-	host	: 'hopper.wlu.ca',
-	user	: 'cram7290',
-	password : 'bigtop6',
-	database : 'cram7290'
-});
-connection.connect();
-connection.query('Select * from UserAuthentication', function(err, rows,fields){
-	console.log(rows);
-});
-connection.end();
+
+
+
+
+
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
@@ -25,6 +31,8 @@ app.set('view engine', 'ejs');
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
+
+//-----------------------------------------------------Page Routers ----------------------------
 // set the home page route
 app.get('/', function(req, res) {
 
@@ -52,6 +60,7 @@ app.get('/navigation', function(req, res){
 	res.render('navigation');
 });
 
+//------------------------------------------------- Open Port ------------------------------------
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
