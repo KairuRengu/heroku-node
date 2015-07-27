@@ -7,7 +7,7 @@ var config = {
 	database : 'cram7290'
 };
 
-var DB = Bookshelf.initialize({
+var DB = Bookshelf.intialize({
 	client: 'mysql',
 	connection : config
 });
