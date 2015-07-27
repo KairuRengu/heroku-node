@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 	database : 'cram7290'
 });
 connection.connect();
-connection.query('Select * from userAuthentication', function(err, rows,fields){
+connection.query('Select * from UserAuthentication', function(err, rows,fields){
 	console.log(rows);
 });
 // set the port of our application
