@@ -53,7 +53,7 @@ app.post('/navigation',function(req,res){
 	var userEmail = req.body.UsernameEmail;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
-	console.log(html);
+	alert("help");
 	res.write(html);
 	res.write("Where does this go?");
 	res.end();
