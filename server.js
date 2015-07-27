@@ -30,8 +30,8 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 app.post('/', function(req, res){
-	var userEmail = req.nav.UsernameEmail;
-	var userPassword = req.nav.UsernamePassword;
+	var userEmail = req.body.UsernameEmail;
+	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
 	res.render('index');
 	res.write(html);
