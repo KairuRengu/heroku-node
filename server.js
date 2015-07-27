@@ -58,10 +58,10 @@ app.listen(port, function() {
 
 app.use(bodyParser());
 app.get('/myaction',function(req,res){
-	var html = '<form action="/myaction" method="post"'+
+	var html = '<form action="/myaction" method="post">'+
 				'Enter your name:' +
 				'<input type="text" name="UserName" placeholder="..."/>' +
-				'button type="submit">Submit</button>'+'</form>';
+				'<button type="submit">Submit</button>'+'</form>';
 	res.send(html);
 });
 app.post('/myaction',function(req,res){
