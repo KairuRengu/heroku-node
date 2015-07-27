@@ -15,6 +15,7 @@ connection.query('SELECT * from Customer', function(err, rows, field){
 	else
 		console.log('Error while performing Query. ');
 });
+connection.end();
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
@@ -55,3 +56,4 @@ app.get('/navigation', function(req, res){
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
+
