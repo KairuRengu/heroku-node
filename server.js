@@ -1,6 +1,6 @@
 var express = require('express');
 var mysql = require('mysql');
-var passport = require('passport');
+var passport = require('passport-http');
 var app = express();
 var connection = mysql.createConnection({
 	host	: 'hopper.wlu.ca',
