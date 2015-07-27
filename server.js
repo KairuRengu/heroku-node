@@ -89,7 +89,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(express.bodyParser());
 
-app.post('/myaction', function(req, res) {
+app.get('/myaction', function(req, res) {
 	res.writeHeader(200, {'Content=type': "text/html"});
 	res.write("<p>You send the name :" +req.body.name);
 });
