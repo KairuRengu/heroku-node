@@ -18,7 +18,7 @@ function MainCtrl($scope, $http, twitterService) {
     $scope.search = function() {
         console.log($scope.searchSymbol.symbol);
 
-        //twitterService.getTweets('%23' + $scope.searchSymbol.symbol + '&count=100');
+        twitterService.getTweets('%23' + $scope.searchSymbol.symbol + '&count=100');
 
         $http.get('https://query.yahooapis.com/v1/public/yql?q=' +
             'select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22' +
