@@ -16,7 +16,7 @@
 	"passport-facebook" : "~1.0.2",
 	"bcrypt-nodejs" : "latest",
 	"morgan" : "~1.0.0",
-	"body-parser": "~4.0.0",
+	"body-parser": "~1.0.0",
 	"cookie-parser" : "~1.0.0",
 	"method-override": "~1.0.0",
 	"express-session": "~1.0.0"
