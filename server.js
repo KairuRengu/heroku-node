@@ -27,10 +27,10 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
 
 	// ejs render automatically looks in the views folder
-	res.render('./common/content-top-navigation', {layout:false});
-	res.render('./common/top-navigation', {layout:false});
+	res.render('/common/content-top-navigation', {layout:false});
+	res.render('/common/top-navigation', {layout:false});
 	res.render('index', {layout:false});
-	res.render('./common/footer', {layout:false});
+	res.render('/common/footer', {layout:false});
 });
 
 app.post('/', function(req, res){
