@@ -49,6 +49,12 @@ app.get('/stock-information', function(req, res) {
 app.get('/navigation', function(req, res){
 	res.render('navigation');
 });
+app.post('/navigation',function(req,res){
+	var userEmail = req.body.UsernameEmail;
+	var userPassword = req.body.UsernamePassword;
+	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
+	res.send(html);
+});
 app.get('/login', function(req,res){
 	res.render('login');
 });
