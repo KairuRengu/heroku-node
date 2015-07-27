@@ -86,13 +86,13 @@ var app     = express();
 //Note that in version 4 of express, express.bodyParser() was
 //deprecated in favor of a separate 'body-parser' module.
 app.use(bodyParser());
-app.get('/myaction',function(req,res){
+app.get('/myaction',)function(req,res){
 	var html = '<form action="/myaction" method="post"'+
 				'Enter your name:' +
 				'<input type="text" name="UserName" placeholder="..."/>' +
 				'button type="submit">Submit</button>'+'</form>';
 	res.send(html);
-});
+}
 app.post('/myaction',function(req,res){
 	var userName = req.body.userName;
 	var html = 'Hello: ' + userName + '.<br>';
