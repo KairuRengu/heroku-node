@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Node Sample App</title>
+<html>
+    <head>
+            <title> Pedir random </title>
 
-	<!-- CSS -->
-	<!-- load bootstrap and our own personal stylesheet -->
-	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+            <script type="text/javascript">
+                function operacion(){
+                        var n1 = document.getElementById("num1").value;
+                        var n2 = document.getElementById("num2").value;
 
-</head>
-<body>
+                        location.href = "http://localhost:10001" + "?number1=" + n1 + "&number2=" + n2;
+                }
+            </script>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1>This Is Stock Stalker Index page</h1>
-		<a href="http://scotch.io/tutorials/" class="btn btn-primary btn-lg">View the Tutorial</a>
-	</div>
-</div>
-	
-</body>
-</html>
+    </head>
+
+    <body>
+            <h1>Inserte dos números </h1>
+            <form id="forma1"> 
+                <input type="text" id="num1"></input>
+                <input type="text" id="num2"></imput>
+                <input type="button" onClick="operacion()" id="enviar" value="enviar"></input>
+            </form>
+    </body>
+
+<html>
