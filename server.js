@@ -27,11 +27,14 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
 
 	// ejs render automatically looks in the views folder
+	res.render('./common/content-top-navigation');
+	res.render('./common/top-navigation');
 	res.render('index');
+	res.render('./common/footer');
 });
 
 app.post('/', function(req, res){
-	res.write(res);
+	
 /* 	var userEmail = req.body.UserName;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
