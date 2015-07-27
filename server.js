@@ -85,14 +85,21 @@ var app     = express();
 
 //Note that in version 4 of express, express.bodyParser() was
 //deprecated in favor of a separate 'body-parser' module.
-app.use(bodyParser.urlencoded({ extended: true })); 
-
+app.use(bodyParser());
+app.get('/myaction',)function(req,res){
+	var html = '<form action="/myaction" method="post"'+
+				'Enter your name:' +
+				'<input type="text" name="UserName" placeholder="..."/>' +
+				'button type="submit">Submit</button>'+'</form>';
+	res.send(html);
+}
+app.post('/myaction',function(req,res){
+	var userName = req.body.userName;
+	var html = 'Hello: ' + userName + '.<br>';
+	res.send(html);
+});
 //app.use(express.bodyParser());
 
-app.get('/myaction', function(req, res) {
-	res.writeHeader(200, {'Content=type': "text/html"});
-	res.write("<p>You send the name :" +req.body.name);
-});
 
 app.listen(8080, function() {
   console.log('Server running at http://127.0.0.1:8080/');
