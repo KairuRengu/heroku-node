@@ -49,11 +49,10 @@ app.get('/stock-information', function(req, res) {
 app.get('/navigation', function(req, res){
 	res.render('navigation');
 });
-app.post('/navigation',function(req,res){
+app.post('/navigation?',function(req,res){
 	var userEmail = req.body.UsernameEmail;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
-	alert("help");
 	res.write(html);
 	res.write("Where does this go?");
 	res.end();
