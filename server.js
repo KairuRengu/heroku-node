@@ -1,6 +1,5 @@
 var express = require('express');
 var mysql = require('mysql');
-var http = require('http');
 var app = express();
 var connection = mysql.createConnection({
 	host	: 'hopper.wlu.ca',
@@ -8,7 +7,6 @@ var connection = mysql.createConnection({
 	password : 'bigtop6',
 	database : 'cram7290'
 });
-
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
@@ -49,4 +47,3 @@ app.get('/navigation', function(req, res){
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
-
