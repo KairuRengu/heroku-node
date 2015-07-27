@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 app.post('/navigation', function(req, res){
-	var userEmail = req.body.UsernameEmail;
+	var userEmail = req.body.UserName;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
 	res.render('index');
