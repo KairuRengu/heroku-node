@@ -29,7 +29,14 @@ app.get('/', function(req, res) {
 	// ejs render automatically looks in the views folder
 	res.render('index');
 });
-
+app.post('/', function(req, res){
+	var userEmail = req.nav.UsernameEmail;
+	var userPassword = req.nav.UsernamePassword;
+	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
+	res.render('index');
+	res.write(html);
+	res.end();
+});
 app.get('/profile', function(req, res) {
 
 	// ejs render automatically looks in the views folder
@@ -50,11 +57,7 @@ app.get('/navigation', function(req, res){
 	res.render('navigation');
 });
 app.post('/navigation',function(req,res){
-	var userEmail = req.nav.UsernameEmail;
-	var userPassword = req.nav.UsernamePassword;
-	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
-	res.write(html);
-	res.end();
+
 });
 app.get('/login', function(req,res){
 	res.render('login');
