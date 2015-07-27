@@ -1,17 +1,22 @@
+// vendor libraries
 var express = require('express');
-var mysql = require('mysql');
-var passport = require('passport-http');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var bcrypt = require('bcrypt-nodejs');
+var ejs = require('ejs');
+var path = require('path');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+// custom libraries
+// routes
+var route = require('./route');
+// model
+var Model = require('./model');
+
 var app = express();
-var connection = mysql.createConnection({
-	host	: 'hopper.wlu.ca',
-	user	: 'cram7290',
-	password : 'bigtop6',
-	database : 'cram7290'
-});
-connection.connect();
-connection.query('Select * from UserAuthentication', function(err, rows,fields){
-	console.log(rows);
-});
+
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
@@ -52,3 +57,61 @@ app.get('/navigation', function(req, res){
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
+passport.use(new LocalStrategy(function(username, password, done) {
+   new Model.User({username: username}).fetch().then(function(data) {
+      var user = data;
+      if(user === null) {
+         return done(null, false, {message: 'Invalid username or password'});
+      } else {
+         user = data.toJSON();
+         if(!bcrypt.compareSync(password, user.password)) {
+            return done(null, false, {message: 'Invalid username or password'});
+         } else {
+            return done(null, user);
+         }
+      }
+   });
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.username);
+});
+
+passport.deserializeUser(function(username, done) {
+   new Model.User({username: username}).fetch().then(function(user) {
+      done(null, user);
+   });
+});
+
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(session({secret: 'secret strategic xxzzz code'}));
+app.use(passport.initialize());
+app.use(passport.session());
+// GET
+app.get('/', route.index);
+
+// signin
+// GET
+app.get('/signin', route.signIn);
+// POST
+app.post('/signin', route.signInPost);
+
+// signup
+// GET
+app.get('/signup', route.signUp);
+// POST
+app.post('/signup', route.signUpPost);
+
+// logout
+// GET
+app.get('/signout', route.signOut);
+
+/********************************/
+
+/********************************/
+// 404 not found
+app.use(route.notFound404);
