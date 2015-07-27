@@ -48,7 +48,9 @@ app.get('/stock-information', function(req, res) {
 app.get('/navigation', function(req, res){
 	res.render('navigation');
 });
-
+app.get('/login', function(req,res){
+	res.render('login');
+});
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
@@ -64,9 +66,8 @@ app.get('/my_secret_page', checkAuth, function (req, res){
 	res.send('If you are viewing this page it means you are logged in');
 });
 
-app.get('/login', function (req, res){
+app.post('/login', function (req, res){
 	var post = req.body;
-	res.send('login');
 	if( post.user == 'john' && post.password == 'johnspassword'){
 		req.session.user_id = johns_usre_id_here;
 		res.redirect('/my_secret_page');
