@@ -53,7 +53,9 @@ app.post('/navigation',function(req,res){
 	var userEmail = req.body.UsernameEmail;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
-	res.send(html);
+	res.writeHeader(200, {"Content-Type": "text/html"});
+	res.write(html);
+	res.end();
 });
 app.get('/login', function(req,res){
 	res.render('login');
