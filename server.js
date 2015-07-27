@@ -79,23 +79,20 @@ app.get('/logout', function (req,res){
 	delete req.session.user_id;
 	res.redirect('/login');
 });
-var http = require("http");
-var url = require("url");
+var express = require('express');
+var bodyParser = require('body-parser');
+var app     = express();
 
-http.createServer(function(request, response){
-    response.writeHead(200, {"Content-Type":"text/plain"});
-    var params = url.parse(request.url,true).query;
+//Note that in version 4 of express, express.bodyParser() was
+//deprecated in favor of a separate 'body-parser' module.
+app.use(bodyParser.urlencoded({ extended: true })); 
 
-    console.log(params);
+//app.use(express.bodyParser());
 
-    var a = params.number1;
-    var b = params.number2;
+app.post('/myaction', function(req, res) {
+  res.send('You sent the name "' + req.body.name + '".');
+});
 
-    var numA = new Number(a);
-    var numB = new Number(b);
-
-    var sum = new Number(numA + numB).toFixed(0);
-
-    response.write(sum);
-    response.end();
-}).listen(8080);
+app.listen(8080, function() {
+  console.log('Server running at http://127.0.0.1:8080/');
+});

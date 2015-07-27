@@ -1,25 +1,27 @@
+<!DOCTYPE html>
 <html>
-    <head>
-            <title> Pedir random </title>
+<head>
+<meta charset="utf-8" />
+<title>CSS3 Contact Form</title>
+</head>
+<body>
+<div id="contact">
+    <h1>Send an email</h1>
+    <form action="/myaction" method="post">
+        <fieldset>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" />
 
-            <script type="text/javascript">
-                function operacion(){
-                        var n1 = document.getElementById("num1").value;
-                        var n2 = document.getElementById("num2").value;
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email address" />
 
-                        location.href = "https://stock-stalker-2.herokuapp.com/" + "?number1=" + n1 + "&number2=" + n2;
-                }
-            </script>
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="What's on your mind?"></textarea>
 
-    </head>
+            <input type="submit" value="Send message" />
 
-    <body>
-            <h1>Insert two numbers </h1>
-            <form id="forma1"> 
-                <input type="text" id="num1"></input>
-                <input type="text" id="num2"></imput>
-                <input type="button" onClick="operacion()" id="enviar" value="enviar"></input>
-            </form>
-    </body>
-
-<html>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
