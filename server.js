@@ -54,11 +54,15 @@ app.get('/login', function(req,res){
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
+
+
+var bodyParser = require('body-parser');
+
 //Note that in version 4 of express, express.bodyParser() was
 //deprecated in favor of a separate 'body-parser' module.
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-app.use(express.bodyParser());
+//app.use(express.bodyParser());
 
 app.get('/myaction', function(req, res) {
 	res.writeHeader(200, {'Content=type': "text/html"});
