@@ -8,14 +8,7 @@ var connection = mysql.createConnection({
 	password : 'bigtop6',
 	database : 'cram7290'
 });
-connection.connect();
-connection.query('SELECT * from Customer', function(err, rows, field){
-	if(!err)
-		console.log('The solution is : ', rows);
-	else
-		console.log('Error while performing Query. ');
-});
-connection.end();
+
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 8080;
