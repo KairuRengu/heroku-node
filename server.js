@@ -115,9 +115,3 @@ app.get('/signout', route.signOut);
 /********************************/
 // 404 not found
 app.use(route.notFound404);
-var server = app.listen(app.get('port'), function(err) {
-   if(err) throw err;
-
-   var message = 'Server is running @ http://localhost:' + server.address().port;
-   console.log(message);
-});
