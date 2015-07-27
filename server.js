@@ -31,7 +31,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function(req, res){
-	res.render(res);
+	res.write(res);
 /* 	var userEmail = req.body.UserName;
 	var userPassword = req.body.UsernamePassword;
 	var html = 'Hello: ' + userEmail + '.<br>' + userPassword;
