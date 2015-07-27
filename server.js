@@ -1,6 +1,7 @@
 var express = require('express');
 var mysql = require('mysql');
 var passport = require('passport-http');
+var bodyParser = require('body-parser');
 var app = express();
 var connection = mysql.createConnection({
 	host	: 'hopper.wlu.ca',
@@ -55,52 +56,3 @@ app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
 
-function checkAuth(req, res, next){
-	if(!req.session.user_id){
-		res.send('You are not authirzed to view this page.');
-	}else{
-		next();
-	}
-}
-app.get('/my_secret_page', checkAuth, function (req, res){
-	res.send('If you are viewing this page it means you are logged in');
-});
-
-app.post('/login', function (req, res){
-	var post = req.body;
-	if( post.user == 'john' && post.password == 'johnspassword'){
-		req.session.user_id = johns_usre_id_here;
-		res.redirect('/my_secret_page');
-	}else{
-		res.send('Bad user/pass');
-	}
-});
-app.get('/logout', function (req,res){
-	delete req.session.user_id;
-	res.redirect('/login');
-});
-var express = require('express');
-var bodyParser = require('body-parser');
-var app     = express();
-
-//Note that in version 4 of express, express.bodyParser() was
-//deprecated in favor of a separate 'body-parser' module.
-app.use(bodyParser());
-app.get('/myaction',function(req,res){
-	var html = '<form action="/myaction" method="post"'+
-				'Enter your name:' +
-				'<input type="text" name="UserName" placeholder="..."/>' +
-				'button type="submit">Submit</button>'+'</form>';
-	res.send(html);
-});
-app.post('/myaction',function(req,res){
-	var userName = req.body.userName;
-	var html = 'Hello: ' + userName + '.<br>';
-	res.send(html);
-});
-//app.use(express.bodyParser());
-
-
-app.listen(8080, function() {
-  console.log('Server running at http://127.0.0.1:8080/');
-});
